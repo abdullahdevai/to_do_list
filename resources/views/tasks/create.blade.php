@@ -11,7 +11,9 @@
 
 <body>
     <h1>Create</h1>
-    <div>
+<div>
+<form action="{route('tasks.store')}" method="post">
+<div>
         <label for="title" class="block text-sm/6 font-medium">Title</label>
         <div class="mt-2">
             <input type="text"
@@ -23,6 +25,8 @@
         <label for="is_active" class="block text-sm/6 font-medium">is_active</label>
         <input type="checkbox" name="" id="">
     </div>
+</form>
+</div>
 </body>
 
 </html>

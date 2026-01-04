@@ -21,9 +21,9 @@
   <tbody>
 @foreach ($tasks ?? [] as $task )
 <tr>
-      <td>  {{ $task['id'] }} </td>
-      <td> {{ $task['title'] }} </td>
-      <td> {{ $task['is_completed'] }} </td>
+      <td>  {{ $task->id}} </td>
+      <td> {{ $task->title }} </td>
+      <td> {{ $task->is_completed }} </td>
     </tr>
 @endforeach
 
