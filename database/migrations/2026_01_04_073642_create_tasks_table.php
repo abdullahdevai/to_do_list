@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->boolean('is_completed')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

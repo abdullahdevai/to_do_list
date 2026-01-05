@@ -4,51 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black">Log in</h2>
-        </div>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-        <form action="{{ route('login') }}" method="post">
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+            Log in
+        </h2>
+
+        <form action="{{ route('login') }}" method="POST" class="space-y-5">
             @csrf
 
+
             <div>
-                <label for="email" class="block text-sm/6 font-medium">Email address</label>
-                <div class="mt-2">
-                    <input type="email"
-                       name="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 outline-1 -outline-offset-1 outline-black  focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
-                </div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Email address
+                </label>
+                <input type="email" name="email"
+                    class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm
+                           focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
                 @error('email')
-                    <p class="text-red-400 block">{{ $message }}</p>
+                    <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
 
             <div>
-                <label for="password" class="block text-sm/6 font-medium ">Password</label>
-                <div class="mt-2">
-                    <input id="password" type="password" name="password"
-                        class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
-                </div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Password
+                </label>
+                <input type="password" name="password"
+                    class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm
+                           focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500">
                 @error('password')
-                    <p class="text-red-400 block">{{ $message }}</p>
+                    <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
 
-            <div class="mt-5">
-                <button type="submit"
-                    class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold  hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Log
-                    in</button>
-            </div>
+            <button type="submit"
+                class="w-full rounded-md bg-indigo-600 py-2 text-white font-semibold
+                       hover:bg-indigo-500 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Log in
+            </button>
         </form>
-
     </div>
 
 </body>

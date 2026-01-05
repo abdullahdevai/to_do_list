@@ -23,6 +23,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(TaskController::class)->group(function () {
     Route::get('/', 'index')->name('tasks.index');
     Route::post('/tasks', 'store')->name('tasks.store');
-    Route::put('/tasks{tasks}', 'update')->name('tasks.update');
-    Route::delete('/tasks{tasks}', 'destroy')->name('tasks.destroy');
+    Route::get('/tasks/{task}/edit', 'edit')->name('tasks.edit');
+    Route::put('/tasks/{task}', 'update')->name('tasks.update');
+    Route::delete('/tasks/{task}', 'destroy')->name('tasks.destroy');
 });
+
