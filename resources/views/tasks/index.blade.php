@@ -10,12 +10,24 @@
 <body class="bg-gray-100 min-h-screen flex justify-center p-6">
 
     <div class="bg-white w-full max-w-xl p-6 rounded shadow">
+     @if (session('success'))
+        <div class="alert alert-success bg-green-500 p-2 ">
+            {{ session('success') }}
+        </div>
+    @endif
+
+
+    @if (session('error'))
+        <div class="alert alert-danger bg-red-600 p-2">
+            {{ session('error') }}
+        </div>
+    @endif
         <h1 class="text-2xl font-bold mb-4 text-center">To-Do List</h1>
 
 
         <form method="GET" action="{{ route('tasks.index') }}" class="flex mb-4">
             <input type="text" name="search" value="{{ request()->query('search') }}" placeholder="Search tasks..."
-                class="w-full border px-3 py-2 rounded">
+                class="w-full border border-blue-500 px-3 py-2 rounded">
             <button type="submit" class="bg-blue-500 text-white px-4 rounded-r">
                 Search
             </button>
@@ -24,7 +36,7 @@
 
         <form action="{{ route('tasks.store') }}" method="POST" class="flex mb-4">
             @csrf
-            <input type="text" name="title" placeholder="New task..." class="flex-1 border px-3 py-2 rounded-l"
+            <input type="text" name="title" placeholder="New task..." class="flex-1 border border-blue-500 px-3 py-2 rounded-l"
                 required>
             <button type="submit" class="bg-blue-500 text-white px-4 rounded-r">
                 Add
@@ -34,7 +46,7 @@
 
         <ul class="space-y-2">
             @forelse ($tasks as $task)
-                <li class="flex justify-between items-center border p-2 rounded">
+                <li class="flex justify-between items-center border border-blue-500 p-2 rounded">
                     <div class="flex items-center gap-2">
 
                         <form action="{{ route('tasks.update', $task) }}" method="POST">
